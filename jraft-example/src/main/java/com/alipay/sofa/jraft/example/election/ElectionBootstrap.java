@@ -34,10 +34,10 @@ public class ElectionBootstrap {
                 .println("Example: java com.alipay.sofa.jraft.example.election.ElectionBootstrap /tmp/server1 election_test 127.0.0.1:8081 127.0.0.1:8081,127.0.0.1:8082,127.0.0.1:8083");
             System.exit(1);
         }
-        final String dataPath = args[0];
-        final String groupId = args[1];
-        final String serverIdStr = args[2];
-        final String initialConfStr = args[3];
+        final String dataPath = args[0];// /tmp/server1
+        final String groupId = args[1]; // election_test
+        final String serverIdStr = args[2]; // serverId   127.0.0.0.1:8081
+        final String initialConfStr = args[3]; // 127.0.0.1:8081 127.0.0.1:8081,127.0.0.1:8082,127.0.0.1:8083 comma separatd values
 
         final ElectionNodeOptions electionOpts = new ElectionNodeOptions();
         electionOpts.setDataPath(dataPath);
@@ -45,7 +45,7 @@ public class ElectionBootstrap {
         electionOpts.setServerAddress(serverIdStr);
         electionOpts.setInitialServerAddressList(initialConfStr);
 
-        final ElectionNode node = new ElectionNode();
+        final ElectionNode node = new ElectionNode(); //ElectionNode 是jraft core中Node的一个实现，在election example中
         node.addLeaderStateListener(new LeaderStateListener() {
 
             PeerId serverId = node.getNode().getLeaderId();
