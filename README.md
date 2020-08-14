@@ -1,3 +1,5 @@
+# jraft代码阅读分析及注释
+
 # SOFAJRaft
 
 [![Build Status](https://travis-ci.com/sofastack/sofa-jraft.svg?branch=master)](https://travis-ci.com/sofastack/sofa-jraft)
